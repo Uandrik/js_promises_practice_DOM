@@ -18,11 +18,15 @@ const promiseOne = new Promise((resolve, reject) => {
 });
 
 const promiseTwo = new Promise((resolve, reject) => {
-  document.addEventListener('mousedown', (e) => {
-    if (e.button === 0 || e.button === 2) {
-      resolve(`Second promise was resolved`);
-    }
-  });
+  document.addEventListener(
+    'mousedown',
+    (e) => {
+      if (e.button === 0 || e.button === 2) {
+        resolve(`Second promise was resolved`);
+      }
+    },
+    { once: true },
+  );
 });
 
 const promiseThree = new Promise((resolve, reject) => {
